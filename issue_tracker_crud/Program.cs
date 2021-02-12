@@ -7,7 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace issue_tracker_api
+namespace issue_tracker_crud
 {
     public class Program
     {

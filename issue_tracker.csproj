@@ -11,10 +11,21 @@
   </ItemGroup>
   <ItemGroup>
     <Content Remove="issue_tracker_api\Properties\launchSettings.json" />
+    <Content Remove="issue_tracker_crud\Pages\Error.cshtml" />
+    <Content Remove="issue_tracker_crud\Pages\Privacy.cshtml" />
+    <Content Remove="issue_tracker_crud\Pages\_ViewImports.cshtml" />
+    <Content Remove="issue_tracker_crud\Pages\Index.cshtml" />
+    <Content Remove="issue_tracker_crud\Pages\_ViewStart.cshtml" />
+    <Content Remove="issue_tracker_crud\Pages\Shared\_ValidationScriptsPartial.cshtml" />
+    <Content Remove="issue_tracker_crud\Pages\Shared\_Layout.cshtml" />
+    <Content Remove="issue_tracker_crud\Properties\launchSettings.json" />
   </ItemGroup>
   <ItemGroup>
     <Content Update="wwwroot\data\data.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.3" />
   </ItemGroup>
 </Project>
