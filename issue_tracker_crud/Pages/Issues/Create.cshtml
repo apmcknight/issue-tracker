@@ -1,54 +1,70 @@
 @page
 @model issue_tracker_crud.Pages.Issues.CreateModel
 
-@{
-    ViewData["Title"] = "Create";
-}
+@{ ViewData["Title"] = "Create"; }
 
-<h1>Create</h1>
+<style>
+    .mainSection {
+        padding-top: 100px;
+        padding-left: 250px;
+    }
+    .inputSections {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+    .descriptionInput{
+        width: 850px;
+    }
+</style>
 
-<h4>Issue</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Issue.IssueTitle" class="control-label"></label>
-                <input asp-for="Issue.IssueTitle" class="form-control" />
-                <span asp-validation-for="Issue.IssueTitle" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Issue.IssueDescription" class="control-label"></label>
-                <input asp-for="Issue.IssueDescription" class="form-control" />
-                <span asp-validation-for="Issue.IssueDescription" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Issue.IssueLevel" class="control-label"></label>
-                <input asp-for="Issue.IssueLevel" class="form-control" />
-                <span asp-validation-for="Issue.IssueLevel" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Issue.IssueAssigned" /> @Html.DisplayNameFor(model => model.Issue.IssueAssigned)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Issue.IsIssueOpen" /> @Html.DisplayNameFor(model => model.Issue.IsIssueOpen)
-                </label>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+<section class="mainSection">
+    <h1>Open a New Issue</h1>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group inputSections">
+                    <label asp-for="Issue.IssueTitle" class="control-label">Issue Title</label>
+                    <input asp-for="Issue.IssueTitle" class="form-control" required />
+                    <div class="invalid-feedback">
+                        Please provide a valid city.
+                    </div>
+                    <span asp-validation-for="Issue.IssueTitle" class="text-danger"></span>
+                </div>
+                <div class="form-group inputSections">
+                    <label asp-for="Issue.IssueDescription" class="control-label">Issue Description</label>
+                    <textarea asp-for="Issue.IssueDescription" class="form-control descriptionInput"></textarea>
+                    <span asp-validation-for="Issue.IssueDescription" class="text-danger"></span>
+                </div>
+                <div class="form-group inputSections">
+                    <label asp-for="Issue.IssueLevel" class="control-label">Issue Level (1 LOW - 5 HIGH)</label>
+                    <input asp-for="Issue.IssueLevel" class="form-control" />
+                    <span asp-validation-for="Issue.IssueLevel" class="text-danger"></span>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="Issue.IssueAssigned" /> Is this issue assigned?
+                    </label>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="Issue.IsIssueOpen" />
+                        Is this issue Open?
+                    </label>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
     </div>
-</div>
 
-<div>
-    <a asp-page="Index">Back to List</a>
-</div>
+    <div>
+        <a asp-page="./Index">Cancel</a>
+    </div>
+</section>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+@*@section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }*@
